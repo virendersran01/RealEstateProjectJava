@@ -1,8 +1,15 @@
 package com.virtualstudios.realestateproject;
 
+import androidx.annotation.DimenRes;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.graphics.Rect;
 import android.os.Bundle;
+import android.view.View;
 
 import org.imaginativeworld.whynotimagecarousel.CarouselItem;
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel;
@@ -17,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setupImageCarouselView();
+        setupPopularCities();
     }
 
     private void setupImageCarouselView(){
@@ -45,4 +53,30 @@ public class MainActivity extends AppCompatActivity {
         list.add(new CarouselItem(R.drawable.city3));
         carousel.addData(list);
     }
+
+    private void setupPopularCities(){
+        RecyclerView recyclerView = findViewById(R.id.rvPopularCities);
+        recyclerView.setAdapter(new AdapterCity());
+        recyclerView.addItemDecoration(new ItemOffsetDecoration(getApplicationContext(), R.dimen.city_items_offset));
+    }
+
+    public static class ItemOffsetDecoration extends RecyclerView.ItemDecoration {
+        private final int mItemOffset;
+
+        ItemOffsetDecoration(int itemOffset) {
+            mItemOffset = itemOffset;
+        }
+
+        public ItemOffsetDecoration(@NonNull Context context, @DimenRes int itemOffsetId) {
+            this(context.getResources().getDimensionPixelSize(itemOffsetId));
+        }
+
+        @Override
+        public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent,
+                                   @NonNull RecyclerView.State state) {
+            super.getItemOffsets(outRect, view, parent, state);
+            outRect.set(mItemOffset, mItemOffset, mItemOffset, mItemOffset);
+        }
+    }
+
 }
