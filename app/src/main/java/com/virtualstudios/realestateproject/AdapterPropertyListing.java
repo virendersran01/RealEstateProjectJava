@@ -22,7 +22,7 @@ public class AdapterPropertyListing extends RecyclerView.Adapter<AdapterProperty
 
     @Override
     public int getItemCount() {
-        return 5;
+        return 3;
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {

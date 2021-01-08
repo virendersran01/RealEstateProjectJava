@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/property1"
+            android:scaleType="fitXY"
+            app:layout_constraintDimensionRatio="2:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <HorizontalScrollView
+            android:id="@+id/layout1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="horizontal"
+            android:scrollbars="none"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/property1" />
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/property2"
+                    android:layout_marginStart="4dp"/>
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/property3"
+                    android:layout_marginStart="4dp"/>
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/city1"
+                    android:layout_marginStart="4dp"/>
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/city2"
+                    android:layout_marginStart="4dp"/>
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/city3"
+                    android:layout_marginStart="4dp"/>
+
+            </LinearLayout>
+
+
+        </HorizontalScrollView>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textPropertyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Bjelovar estate 1"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@id/layout1"
+            app:layout_constraintTop_toBottomOf="@id/layout1" />
+
+        <ImageView
+            android:id="@+id/imageLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_outline_location"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@id/textPropertyName"
+            app:layout_constraintTop_toBottomOf="@id/textPropertyName"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ludhiana"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-light"
+            android:layout_marginStart="4dp"
+            app:layout_constraintStart_toEndOf="@id/imageLocation"
+            app:layout_constraintTop_toTopOf="@id/imageLocation"
+            app:layout_constraintBottom_toBottomOf="@id/imageLocation"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textBathrooms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
+            android:text="2 Bathrooms"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:fontFamily="sans-serif"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageLocation"/>
+
+        <View
+            android:id="@+id/viewDivider1"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:background="#ACA9A9"
+            app:layout_constraintTop_toTopOf="@id/textBathrooms"
+            app:layout_constraintBottom_toBottomOf="@id/textBathrooms"
+            app:layout_constraintStart_toEndOf="@id/textBathrooms"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textBedrooms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="2 Bedrooms"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:fontFamily="sans-serif"
+            app:layout_constraintStart_toEndOf="@id/viewDivider1"
+            app:layout_constraintTop_toTopOf="@id/textBathrooms"
+            app:layout_constraintBottom_toBottomOf="@id/textBathrooms"/>
+
+        <View
+            android:id="@+id/viewDivider2"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:background="#ACA9A9"
+            app:layout_constraintTop_toTopOf="@id/textBathrooms"
+            app:layout_constraintBottom_toBottomOf="@id/textBathrooms"
+            app:layout_constraintStart_toEndOf="@id/textBedrooms"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Size 200 m2"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:fontFamily="sans-serif"
+            app:layout_constraintStart_toEndOf="@id/viewDivider2"
+            app:layout_constraintTop_toTopOf="@id/textBathrooms"
+            app:layout_constraintBottom_toBottomOf="@id/textBathrooms"/>
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

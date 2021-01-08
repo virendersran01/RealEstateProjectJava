@@ -121,6 +121,27 @@
                 android:src="@drawable/city2"
                 android:layout_marginStart="4dp"/>
 
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/city3"
+                android:layout_marginStart="4dp"/>
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/city1"
+                android:layout_marginStart="4dp"/>
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/city2"
+                android:layout_marginStart="4dp"/>
+
 
 
         </LinearLayout>
