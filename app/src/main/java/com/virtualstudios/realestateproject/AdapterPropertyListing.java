@@ -1,5 +1,6 @@
 package com.virtualstudios.realestateproject;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,10 @@ public class AdapterPropertyListing extends RecyclerView.Adapter<AdapterProperty
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            itemView.setOnClickListener(v -> {
+                itemView.getContext().startActivity(new Intent(itemView.getContext(),DetailActivity.class));
+            });
 
         }
     }
