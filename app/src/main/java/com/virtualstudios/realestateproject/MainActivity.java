@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
        // AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setupImageCarouselView();
         setupPopularCities();
+        setupPropertyListing();
     }
 
     private void setupImageCarouselView(){
@@ -62,6 +63,11 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(new ItemOffsetDecoration(getApplicationContext(), R.dimen.city_items_offset));
     }
 
+    private void setupPropertyListing(){
+        RecyclerView recyclerView = findViewById(R.id.recyclerViewPropertyListing);
+        recyclerView.setAdapter(new AdapterPropertyListing());
+    }
+
     public static class ItemOffsetDecoration extends RecyclerView.ItemDecoration {
         private final int mItemOffset;
 
@@ -80,5 +86,6 @@ public class MainActivity extends AppCompatActivity {
             outRect.set(mItemOffset, mItemOffset, mItemOffset, mItemOffset);
         }
     }
+
 
 }
