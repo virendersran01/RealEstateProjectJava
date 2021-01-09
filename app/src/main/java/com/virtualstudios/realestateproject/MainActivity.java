@@ -11,6 +11,11 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+
+import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.card.MaterialCardView;
 
 import org.imaginativeworld.whynotimagecarousel.CarouselItem;
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel;
@@ -25,10 +30,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
        // AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        setupSearchLayout();
         setupImageCarouselView();
         setupPopularCities();
         setupPropertyListing();
     }
+
 
     private void setupImageCarouselView(){
         ImageCarousel carousel = findViewById(R.id.carouselView);
@@ -55,6 +62,24 @@ public class MainActivity extends AppCompatActivity {
         list.add(new CarouselItem(R.drawable.city2));
         list.add(new CarouselItem(R.drawable.city3));
         carousel.addData(list);
+    }
+
+    private void setupSearchLayout(){
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
+        MaterialCardView cardView = findViewById(R.id.cardToolbar);
+        View view = findViewById(R.id.layoutSearch);
+        MaterialButton buttonClose = view.findViewById(R.id.buttonClose);
+
+        cardView.setOnClickListener(v -> {
+            view.setVisibility(View.VISIBLE);
+            toolbar.setVisibility(View.GONE);
+        });
+
+        buttonClose.setOnClickListener(v -> {
+            view.setVisibility(View.GONE);
+            toolbar.setVisibility(View.VISIBLE);
+        });
+
     }
 
     private void setupPopularCities(){

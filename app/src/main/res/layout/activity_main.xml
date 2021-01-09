@@ -68,6 +68,15 @@
 
         </com.google.android.material.appbar.MaterialToolbar>
 
+        <include layout="@layout/layout_search"
+            android:id="@+id/layoutSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"/>
+
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textPopularCities"
             android:layout_width="wrap_content"
