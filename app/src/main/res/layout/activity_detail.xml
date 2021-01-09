@@ -203,28 +203,92 @@
             android:id="@+id/textHeaderDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DESCRIPTION"
-            android:fontFamily="sans-serif-medium"
-            android:textSize="18sp"
-            android:textColor="@color/black"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@id/buttonType"
-            app:layout_constraintStart_toStartOf="@id/layout1"/>
+            android:fontFamily="sans-serif-medium"
+            android:text="DESCRIPTION"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/layout1"
+            app:layout_constraintTop_toBottomOf="@id/buttonType" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/dummy_description"
-            android:textSize="14sp"
             android:fontFamily="sans-serif-smallcaps"
+            android:text="@string/dummy_description"
             android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="@id/textHeaderDescription"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@id/layout1"
-            app:layout_constraintTop_toBottomOf="@id/textHeaderDescription"/>
+            app:layout_constraintStart_toStartOf="@id/textHeaderDescription"
+            app:layout_constraintTop_toBottomOf="@id/textHeaderDescription" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textHeaderDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="DETAIL"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/textHeaderDescription"
+            app:layout_constraintTop_toBottomOf="@id/textDescription" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textHeaderDetails" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textHeaderIndoorAmenities"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="INDOOR AMENITIES"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/textHeaderDescription"
+            app:layout_constraintTop_toBottomOf="@id/recyclerViewDetails" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewIndoorAmenities"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textHeaderIndoorAmenities" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textHeaderOutdoorAmenities"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="OUTDOOR AMENITIES"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/textHeaderDescription"
+            app:layout_constraintTop_toBottomOf="@id/recyclerViewIndoorAmenities" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewOutdoorAmenities"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textHeaderOutdoorAmenities" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.core.widget.NestedScrollView>
