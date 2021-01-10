@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.ContextCompat;
+import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,16 +34,31 @@ public class MainActivity extends AppCompatActivity {
     private MaterialTextView textSale;
     private MaterialTextView textRent;
     private MaterialTextView textSaleRent;
+    private MaterialToolbar toolbar;
+    private View viewSearch;
+    private View viewFooter;
+    private NestedScrollView nestedScrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        nestedScrollView = findViewById(R.id.scrollView);
         // AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setupSearchLayout();
         setupImageCarouselView();
         setupPopularCities();
         setupPropertyListing();
+        viewFooter = findViewById(R.id.viewFooter);
+        viewFooter.setOnClickListener(v -> {
+            if (viewSearch.getVisibility() == View.GONE) {
+                toolbar.setVisibility(View.GONE);
+                viewSearch.setVisibility(View.VISIBLE);
+                nestedScrollView.scrollTo((int)viewSearch.getX(), (int) viewSearch.getY());
+            }else {
+                nestedScrollView.scrollTo((int)viewSearch.getX(), (int) viewSearch.getY());
+            }
+        });
     }
 
 
@@ -60,24 +76,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupSearchLayout() {
-        MaterialToolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         MaterialCardView cardView = findViewById(R.id.cardToolbar);
-        View view = findViewById(R.id.layoutSearch);
-        MaterialButton buttonClose = view.findViewById(R.id.buttonClose);
-        Spinner spinnerCategories = view.findViewById(R.id.spinnerCategories);
-        textAll = view.findViewById(R.id.textAll);
-        textSale = view.findViewById(R.id.textSale);
-        textRent = view.findViewById(R.id.textRent);
-        textSaleRent = view.findViewById(R.id.textSaleRent);
+        viewSearch = findViewById(R.id.layoutSearch);
+        MaterialButton buttonClose = viewSearch.findViewById(R.id.buttonClose);
+        Spinner spinnerCategories = viewSearch.findViewById(R.id.spinnerCategories);
+        textAll = viewSearch.findViewById(R.id.textAll);
+        textSale = viewSearch.findViewById(R.id.textSale);
+        textRent = viewSearch.findViewById(R.id.textRent);
+        textSaleRent = viewSearch.findViewById(R.id.textSaleRent);
         selectType(0);
 
         cardView.setOnClickListener(v -> {
-            view.setVisibility(View.VISIBLE);
+            viewSearch.setVisibility(View.VISIBLE);
             toolbar.setVisibility(View.GONE);
         });
 
         buttonClose.setOnClickListener(v -> {
-            view.setVisibility(View.GONE);
+            viewSearch.setVisibility(View.GONE);
             toolbar.setVisibility(View.VISIBLE);
         });
 
