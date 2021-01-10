@@ -54,10 +54,16 @@ public class MainActivity extends AppCompatActivity {
             if (viewSearch.getVisibility() == View.GONE) {
                 toolbar.setVisibility(View.GONE);
                 viewSearch.setVisibility(View.VISIBLE);
-                nestedScrollView.scrollTo((int)viewSearch.getX(), (int) viewSearch.getY());
-            }else {
-                nestedScrollView.scrollTo((int)viewSearch.getX(), (int) viewSearch.getY());
             }
+            nestedScrollView.scrollTo((int)viewSearch.getX(), (int) viewSearch.getY());
+        });
+
+        nestedScrollView.setOnScrollChangeListener((NestedScrollView.OnScrollChangeListener) (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+            if (viewSearch.getVisibility() == View.VISIBLE){
+                viewSearch.setVisibility(View.GONE);
+                toolbar.setVisibility(View.VISIBLE);
+            }
+
         });
     }
 
