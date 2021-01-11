@@ -10,6 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterPropertyListing extends RecyclerView.Adapter<AdapterPropertyListing.ViewHolder> {
 
+    private int size;
+
+    public AdapterPropertyListing(int size) {
+        this.size = size;
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -23,7 +29,7 @@ public class AdapterPropertyListing extends RecyclerView.Adapter<AdapterProperty
 
     @Override
     public int getItemCount() {
-        return 3;
+        return size;
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {

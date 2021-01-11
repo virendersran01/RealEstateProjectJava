@@ -17,6 +17,7 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         setupDetailView();
         setupIndoorOutdoorAmenities();
+        findViewById(R.id.imageBack).setOnClickListener(v -> onBackPressed());
     }
 
 

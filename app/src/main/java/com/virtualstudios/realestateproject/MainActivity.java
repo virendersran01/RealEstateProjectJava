@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private View viewSearch;
     private View viewFooter;
     private NestedScrollView nestedScrollView;
+    private View viewFeatureProperty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         // AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setupSearchLayout();
         setupImageCarouselView();
+        initFeatureProperty();
         setupPopularCities();
         setupPropertyListing();
         viewFooter = findViewById(R.id.viewFooter);
@@ -59,10 +62,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         nestedScrollView.setOnScrollChangeListener((NestedScrollView.OnScrollChangeListener) (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
-            if (viewSearch.getVisibility() == View.VISIBLE){
-                viewSearch.setVisibility(View.GONE);
-                toolbar.setVisibility(View.VISIBLE);
-            }
+//            if (viewSearch.getVisibility() == View.VISIBLE){
+//                viewSearch.setVisibility(View.GONE);
+//                toolbar.setVisibility(View.VISIBLE);
+//            }
 
         });
     }
@@ -111,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
         textRent.setOnClickListener(v -> selectType(2));
         textSaleRent.setOnClickListener(v -> selectType(3));
 
+        viewSearch.findViewById(R.id.buttonSearch).setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), ListActivity.class)));
 
     }
 
@@ -159,6 +163,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void initFeatureProperty(){
+        viewFeatureProperty = findViewById(R.id.layoutFeatureProperty);
+        MaterialButton buttonViewProperty = viewFeatureProperty.findViewById(R.id.buttonViewProperty);
+        buttonViewProperty.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), DetailActivity.class)));
+
+    }
+
     private void setupPopularCities() {
         RecyclerView recyclerView = findViewById(R.id.rvPopularCities);
         recyclerView.setAdapter(new AdapterCity());
@@ -167,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupPropertyListing() {
         RecyclerView recyclerView = findViewById(R.id.recyclerViewPropertyListing);
-        recyclerView.setAdapter(new AdapterPropertyListing());
+        recyclerView.setAdapter(new AdapterPropertyListing(4));
     }
 
     public static class ItemOffsetDecoration extends RecyclerView.ItemDecoration {
